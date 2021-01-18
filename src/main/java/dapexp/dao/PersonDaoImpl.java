@@ -23,7 +23,19 @@ public class PersonDaoImpl implements PersonDao {
     private class PersonAttributesMapper implements AttributesMapper<Person> {
         public Person mapFromAttributes(Attributes attributes) throws NamingException {
             Person person = new Person();
-            person.setFirstName("Hello World");
+
+            person.setFullName((String) attributes.get("cn").get());
+            person.setTelephoneNumber((String) attributes.get("telephonenumber").get());
+            person.setLocality((String) attributes.get("l").get());
+            person.setFirstName((String) attributes.get("givenname").get());
+            person.setEmployeeNumber((String) attributes.get("employeenumber").get());
+            person.setMail((String) attributes.get("mail").get());
+            person.setMobile((String) attributes.get("mobile").get());
+            person.setPostalAddress((String) attributes.get("postaladdress").get());
+            person.setPostalCode((String) attributes.get("postalcode").get());
+            person.setSirName((String) attributes.get("sn").get());
+            person.setUid((String) attributes.get("uid").get());
+
             return person;
         }
     }
