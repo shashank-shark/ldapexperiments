@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="dapexp.client" />
+    <context:component-scan base-package="dapexp.client, dapexp.dao" />
     <bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource">
         <property name="url" value="ldap://localhost:10389" />
         <property name="base" value="dc=inflinx,dc=com" />

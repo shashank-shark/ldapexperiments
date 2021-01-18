@@ -1,6 +1,9 @@
 package dapexp;
 
 import dapexp.client.SearchClient;
+import dapexp.dao.PersonDao;
+import dapexp.dao.PersonDaoImpl;
+import dapexp.domain.Person;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,6 +19,9 @@ public class LdapexpApplication {
 		SearchClient searchClient = applicationContext.getBean(SearchClient.class);
 		List<String> listOfNames = searchClient.getAllPersonNames();
 		listOfNames.forEach(System.out::println);
+
+        PersonDaoImpl dalImpl = applicationContext.getBean(PersonDaoImpl.class);
+        List<Person> personList = dalImpl.getAllPersons();
 
 		SpringApplication.run(LdapexpApplication.class, args);
 	}
